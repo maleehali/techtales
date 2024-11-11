@@ -1,5 +1,6 @@
+// controllers/api/userRoutes.js
 const router = require('express').Router();
-const { User } = require('../../../models');
+const { User } = require('../../models'); // Corrected path
 const bcrypt = require('bcrypt');
 
 // Signup route
@@ -38,8 +39,7 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = user.id;
       req.session.logged_in = true;
-      // Redirect to the homepage or dashboard after login
-      res.redirect('/dashboard'); // Change '/dashboard' to the route you want users to land on
+      res.json({ user, message: 'You are now logged in!' }); // Changed from redirect to JSON to handle redirect in frontend
     });
   } catch (err) {
     res.status(500).json(err);

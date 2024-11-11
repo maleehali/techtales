@@ -1,6 +1,6 @@
 // controllers/api/postRoutes.js
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post } = require('../../models'); // Corrected path
 const withAuth = require('../../utils/auth'); // Middleware to protect routes
 
 // Route to create a new post
@@ -9,7 +9,7 @@ router.post('/', withAuth, async (req, res) => {
     const newPost = await Post.create({
       title: req.body.title,
       content: req.body.content,
-      user_id: req.session.user_id, // Associate the post with the logged-in user
+      user_id: req.session.user_id,
     });
     res.status(200).json(newPost);
   } catch (err) {

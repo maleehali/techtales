@@ -5,7 +5,7 @@ const postRoutes = require('./api/postRoutes');
 const homeRoutes = require('./homeRoutes');
 
 router.use('/api/users', userRoutes);
-router.use('/api/posts', postRoutes); // Add this line to include postRoutes
+router.use('/api/posts', postRoutes);
 router.use('/', homeRoutes);
 
 module.exports = router;
