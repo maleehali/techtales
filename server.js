@@ -5,7 +5,7 @@ const exphbs = require('express-handlebars'); // Import express-handlebars
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sequelize = require('./Tech-Blog/config/connection');
-const routes = require('./controllers');
+const routes = require('./Tech-Blog/controllers');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
