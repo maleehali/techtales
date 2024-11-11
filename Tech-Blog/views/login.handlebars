@@ -1,14 +1,20 @@
-{{!-- Extends the main layout --}}
-<h1>Login</h1>
+<!-- views/login.handlebars -->
+<h1>Login to The Tech Blog</h1>
 
-<form id="login-form">
-    <label for="username">Username</label>
-    <input type="text" name="username" required>
-    <label for="password">Password</label>
-    <input type="password" name="password" required>
-    <button type="submit">Log In</button>
+<!-- Main Login Form -->
+<form class="login-form">
+  <div>
+    <label for="username-login">Username:</label>
+    <input type="text" id="username-login" name="username" required>
+  </div>
+  <div>
+    <label for="password-login">Password:</label>
+    <input type="password" id="password-login" name="password" required>
+  </div>
+  <button type="submit">Login</button>
 </form>
 
-<p>Don't have an account? <a href="/signup">Sign up here</a>.</p>
+<p>Don’t have an account? <a href="/signup">Sign up here</a></p>
 
+<!-- Link to your JavaScript file for handling the form submission -->
 <script src="/js/login.js"></script>

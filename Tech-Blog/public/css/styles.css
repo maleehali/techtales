@@ -1,0 +1,67 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #d8e2dc; /* Light green background */
+  }
+  
+  /* Header styling */
+  header {
+    background-color: #3d3b3c; /* Dark brown */
+    color: #f4f1de; /* Light cream */
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  header nav a {
+    color: #f4f1de;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 1rem;
+  }
+  
+  header nav a:hover {
+    color: #e07a5f; /* Highlight color for links */
+  }
+  
+  /* Blog post styling */
+  .post {
+    background-color: #f4f1de; /* Light cream background for posts */
+    border: 1px solid #3d3b3c; /* Border color matching the header */
+    margin: 1rem auto;
+    padding: 1rem;
+    max-width: 800px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .post h2 {
+    color: #3d3b3c; /* Dark brown title */
+    font-size: 1.5rem;
+    margin-top: 0;
+  }
+  
+  .post p {
+    color: #3d3b3c;
+  }
+  
+  .post .post-info {
+    font-size: 0.9rem;
+    color: #3d3b3c;
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+  
+  #success-message {
+    font-weight: bold;
+    color: green;
+    margin-top: 10px;
+  }
+  

@@ -1,16 +1,15 @@
 // controllers/api/postRoutes.js
-
 const router = require('express').Router();
 const { Post } = require('../../models');
-const withAuth = require('../../utils/auth');
+const withAuth = require('../../utils/auth'); // Middleware to protect routes
 
-// Create a new post
+// Route to create a new post
 router.post('/', withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
       title: req.body.title,
       content: req.body.content,
-      user_id: req.session.user_id
+      user_id: req.session.user_id, // Associate the post with the logged-in user
     });
     res.status(200).json(newPost);
   } catch (err) {

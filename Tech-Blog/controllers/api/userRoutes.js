@@ -1,17 +1,22 @@
-// controllers/api/userRoutes.js
-
 const router = require('express').Router();
 const { User } = require('../../models');
 const bcrypt = require('bcrypt');
-const withAuth = require('../../utils/auth');
 
-// Sign up
+// Signup route
 router.post('/signup', async (req, res) => {
   try {
+    // Check if the username already exists
+    const existingUser = await User.findOne({ where: { username: req.body.username } });
+    if (existingUser) {
+      return res.status(400).json({ message: 'Username already exists. Please choose a different one.' });
+    }
+
+    // If the username is unique, create a new user
     const newUser = await User.create({
       username: req.body.username,
-      password: await bcrypt.hash(req.body.password, 10)
+      password: await bcrypt.hash(req.body.password, 10),
     });
+
     req.session.save(() => {
       req.session.user_id = newUser.id;
       req.session.logged_in = true;
@@ -22,7 +27,7 @@ router.post('/signup', async (req, res) => {
   }
 });
 
-// Login
+// Login route
 router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({ where: { username: req.body.username } });
@@ -33,14 +38,15 @@ router.post('/login', async (req, res) => {
     req.session.save(() => {
       req.session.user_id = user.id;
       req.session.logged_in = true;
-      res.status(200).json({ user, message: 'You are now logged in!' });
+      // Redirect to the homepage or dashboard after login
+      res.redirect('/dashboard'); // Change '/dashboard' to the route you want users to land on
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// Logout
+// Logout route
 router.post('/logout', (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
