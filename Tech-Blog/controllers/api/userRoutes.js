@@ -1,7 +1,7 @@
 // controllers/api/userRoutes.js
 const router = require('express').Router();
-const { User } = require('../../models/User');
-const bcrypt = require('bcrypt');
+const { User } = require('../../models'); // Assuming models is in the right path
+const bcryptjs = require('bcryptjs');
 
 // Signup route
 router.post('/signup', async (req, res) => {
@@ -15,7 +15,7 @@ router.post('/signup', async (req, res) => {
     // If the username is unique, create a new user
     const newUser = await User.create({
       username: req.body.username,
-      password: await bcrypt.hash(req.body.password, 10),
+      password: await bcryptjs.hash(req.body.password, 10), // Using bcryptjs here
     });
 
     req.session.save(() => {
@@ -32,14 +32,14 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const user = await User.findOne({ where: { username: req.body.username } });
-    if (!user || !await bcrypt.compare(req.body.password, user.password)) {
+    if (!user || !await bcryptjs.compare(req.body.password, user.password)) { // Using bcryptjs.compare here
       res.status(400).json({ message: 'Incorrect username or password' });
       return;
     }
     req.session.save(() => {
       req.session.user_id = user.id;
       req.session.logged_in = true;
-      res.json({ user, message: 'You are now logged in!' }); // Changed from redirect to JSON to handle redirect in frontend
+      res.json({ user, message: 'You are now logged in!' });
     });
   } catch (err) {
     res.status(500).json(err);
