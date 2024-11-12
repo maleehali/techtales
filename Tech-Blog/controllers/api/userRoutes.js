@@ -1,6 +1,8 @@
 // controllers/api/userRoutes.js
+
+const path = require('path'); // Import the path module
 const router = require('express').Router();
-const { User } = require('../../models'); // Adjusted to match the relative path to models directory
+const { User } = require(path.join(__dirname, '../../../models'));
 const bcryptjs = require('bcryptjs');
 
 // Signup route

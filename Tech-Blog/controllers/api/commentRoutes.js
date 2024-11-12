@@ -1,7 +1,8 @@
 // controllers/api/commentRoutes.js
 
+const path = require('path'); // Import the path module
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const { Comment } = require(path.join(__dirname, '../../../models'));
 const withAuth = require('../../utils/auth');
 
 // Add a comment to a post

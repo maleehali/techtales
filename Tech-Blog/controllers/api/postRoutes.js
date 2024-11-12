@@ -1,6 +1,8 @@
 // controllers/api/postRoutes.js
+
+const path = require('path'); // Import the path module
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post } = require(path.join(__dirname, '../../../models'));
 const withAuth = require('../../utils/auth'); // Middleware to protect routes
 
 // Route to create a new post
