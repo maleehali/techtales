@@ -1,7 +1,7 @@
 // controllers/api/commentRoutes.js
 
 const router = require('express').Router();
-const { Comment } = require('../../models/Comment'); // Updated this path
+const { Comment } = require('../../../models');
 const withAuth = require('../../utils/auth');
 
 // Add a comment to a post

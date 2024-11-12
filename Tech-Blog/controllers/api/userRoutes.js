@@ -1,6 +1,6 @@
 // controllers/api/userRoutes.js
 const router = require('express').Router();
-const { User } = require('../../models'); // Assuming models is in the right path
+const { User } = require('../../../models');
 const bcryptjs = require('bcryptjs');
 
 // Signup route
