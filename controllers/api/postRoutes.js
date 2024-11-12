@@ -2,8 +2,8 @@
 
 const path = require('path'); // Import the path module
 const router = require('express').Router();
-const { Post } = require('../../models'); // Adjusted for root directory
-const withAuth = require('../../utils/auth'); // Middleware to protect routes
+const { Post } = require('../models'); // Adjusted for root directory
+const withAuth = require('../utils/auth'); // Middleware to protect routes
 
 // Route to create a new post
 router.post('/', withAuth, async (req, res) => {

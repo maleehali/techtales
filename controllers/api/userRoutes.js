@@ -2,8 +2,11 @@
 
 const path = require('path'); // Import the path module
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User } = require('../models');
 const bcryptjs = require('bcryptjs');
+
+console.log("Current directory:", __dirname);
+console.log("Attempting to load models from:", path.resolve(__dirname, '../../models'));
 
 // Signup route
 router.post('/signup', async (req, res) => {

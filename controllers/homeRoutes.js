@@ -1,6 +1,6 @@
 // controllers/homeRoutes.js
 const router = require('express').Router();
-const { Post, User } = require('../../models');
+const { Post, User } = require('../models');
 
 // Home route
 router.get('/', async (req, res) => {

@@ -2,8 +2,8 @@
 
 const path = require('path'); // Import the path module
 const router = require('express').Router();
-const { Comment } = require('../../models'); // Adjusted for root directory
-const withAuth = require('../../Tech-Blog/utils/auth');
+const { Comment } = require('../models'); // Adjusted for root directory
+const withAuth = require('../utils/auth');
 
 // Add a comment to a post
 router.post('/', withAuth, async (req, res) => {
