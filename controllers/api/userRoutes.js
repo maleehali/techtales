@@ -2,7 +2,7 @@
 
 const path = require('path'); // Import the path module
 const router = require('express').Router();
-const { User } = require('../../models'); // Adjusted for root directory
+const { User } = require('../../models');
 const bcryptjs = require('bcryptjs');
 
 // Signup route
