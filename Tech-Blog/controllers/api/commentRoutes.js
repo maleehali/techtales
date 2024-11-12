@@ -2,7 +2,7 @@
 
 const path = require('path'); // Import the path module
 const router = require('express').Router();
-const { Comment } = require(path.join(__dirname, '../../../models'));
+const { Comment } = require('../../models/Comment');
 const withAuth = require('../../utils/auth');
 
 // Add a comment to a post
