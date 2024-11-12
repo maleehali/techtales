@@ -1,6 +1,6 @@
 // controllers/api/postRoutes.js
 const router = require('express').Router();
-const { Post } = require('../../models'); // Corrected path
+const { Post } = require('../../../models');
 const withAuth = require('../../utils/auth'); // Middleware to protect routes
 
 // Route to create a new post
